@@ -1,11 +1,11 @@
-name: CI
-on: push
+name: ci-node-workflow
+on: [push]
 jobs:
-  build:
+  check_application:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Install modules
-      run: yarn
-    - name: Run tests
-      run: yarn test
+      - uses: action/checkout@v2
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - run: npm test
