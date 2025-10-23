@@ -8,4 +8,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-      - run: yarn test
+      - name: install Jest
+        run:  yarn add --dev jest
+      - name: Run tests
+        run:  yarn test
